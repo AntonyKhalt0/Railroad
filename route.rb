@@ -11,7 +11,7 @@ class Route
 
   attr_reader :name, :stations
 
-  validate :name, :presence
+  # validate :name, :presence
 
   def intialize(name, first_station, last_station)
     @name = name

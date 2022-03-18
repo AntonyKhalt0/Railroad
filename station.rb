@@ -15,8 +15,8 @@ class Station
 
   attr_accessors_with_history :stations_list
 
-  validate :name, :presence
-  validate :name, :format, NAME_STATION
+  # validate :name, :presence
+  # validate :name, :format, NAME_STATION
 
   # @stations_list = []
 

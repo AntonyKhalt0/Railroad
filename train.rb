@@ -15,9 +15,9 @@ class Train
 
   attr_reader :number, :wagons, :route, :speed, :current_station
 
-  validate :number, :presence
-  validate :number, :format, NUMBER_TRAIN
-  validate :route, :type, Route
+  # validate :number, :presence
+  # validate :number, :format, NUMBER_TRAIN
+  # validate :route, :type, Route
 
   @trains_list = []
 
