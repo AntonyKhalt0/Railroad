@@ -20,7 +20,7 @@ module RouteManagment
     station_first = gets.chomp.to_i
     station_last = gets.chomp.to_i
     route = route_new(station_first, station_last)
-    @routes.push(route) if route.valid? 
+    @routes.push(route) if route.valid?
   end
 
   def show_route_stations
