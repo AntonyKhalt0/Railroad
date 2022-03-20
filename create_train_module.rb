@@ -4,6 +4,8 @@ module CreateTrain
   def create_train
     puts 'Введите номер поезда: '
     train_number = gets.chomp.to_i
+    Train.validate(number, :presence)
+    Train.validate(number, :format, Train::NUMBER_TRAIN)
     puts "Введите 1, чтобы создать пассажирский поезд.\n
           Введите 2 чтобы создать грузовой поезд. "
     choice_type_train = gets.chomp.to_i
@@ -18,13 +20,13 @@ module CreateTrain
   def create_passenger_train(train_number)
     train = @trains_list.push(PassengerTrain.new(train_number))
     puts 'Пассажирский поезд создан!'
-    PassengerTrain.add_trains_list(train)
+    PassengerTrain.add_trains_list(train) if train.valid?
   end
 
   def create_cargo_train(train_number)
     train = @trains_list.push(CargoTrain.new(train_number))
     puts 'Грузовой поезд создан!'
-    CargoTrain.add_trains_list(train)
+    CargoTrain.add_trains_list(train) if train.valid?
   end
 
   def train(trains_list)

@@ -15,9 +15,6 @@ class Station
 
   attr_accessors_with_history :stations_list
 
-  # validate :name, :presence
-  # validate :name, :format, NAME_STATION
-
   # @stations_list = []
 
   #  class << self
@@ -35,7 +32,6 @@ class Station
     @name = name
     @trains_list = []
     register_instance
-    raise 'Объект не создан. Неверные данные.' unless valid?(name, :presence) || valid?(name, :format, NAME_STATION)
   end
 
   def add_train(train)

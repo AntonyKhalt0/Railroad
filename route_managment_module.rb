@@ -13,11 +13,14 @@ module RouteManagment
   end
 
   def create_route
+    Route.validate(name, :presence)
+    Route.validate(name, :type, Route)
     @stations.each_with_index { |station, _index| puts "#{i.next} - #{station.name}" }
     puts 'Введите номер первой и последней станции: '
     station_first = gets.chomp.to_i
     station_last = gets.chomp.to_i
-    @routes.push(route_new(station_first, station_last))
+    route = route_new(station_first, station_last)
+    @routes.push(route) if route.valid? 
   end
 
   def show_route_stations

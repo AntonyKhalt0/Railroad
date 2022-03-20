@@ -30,9 +30,10 @@ class Interface
     puts 'Введите название станции: '
     station_name = gets.chomp
     station_name.capitalize!
+    Station.validate(station_name, :presence)
     station = Station.new(station_name)
     puts 'Станция создана!'
-    @stations.push(station)
+    @stations.push(station) if station.valid?
     Station.add_stations_list(station)
   end
 

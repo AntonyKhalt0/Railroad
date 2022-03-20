@@ -15,10 +15,6 @@ class Train
 
   attr_reader :number, :wagons, :route, :speed, :current_station
 
-  # validate :number, :presence
-  # validate :number, :format, NUMBER_TRAIN
-  # validate :route, :type, Route
-
   @trains_list = []
 
   class << self
@@ -40,7 +36,6 @@ class Train
     @wagons = []
     @speed = 0
     register_instance
-    raise 'Объект не создан. Неверные данные.' unless valid?(number, :presence) || valid?(number, :format, NUMBER_TRAIN)
   end
 
   def speed_dial(boost)
