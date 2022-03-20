@@ -7,7 +7,7 @@ module Validate
   end
 
   module ClassMethods
-    def validate(var_name, validate_type, *args = nil)
+    def validate(var_name, validate_type, args = nil)
       @checked_values ||= []
       @checked_values.push({ var_name: var_name, validate_type: validate_type, args: args})
     end
